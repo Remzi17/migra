@@ -1,0 +1,551 @@
+.header
+	position: sticky
+	left: 0
+	top: 0
+	z-index: 10
+ 
+	width: 100%
+	will-change: transform
+
+	&__top
+		display: flex
+		align-items: center
+		justify-content: space-between 
+		+adap('padding-block', 12, 10)
+		+adap('padding-inline', 30, 16)
+		gap: 8px
+
+		background: #eaf1f6
+		border-inline: 1px solid $active
+
+		&-wrapper
+			display: flex
+			align-items: center
+
+
+	&__left 
+		display: flex
+		align-items: center
+		+adap('gap', 46, 16)
+
+	&__rating 
+		display: grid
+		gap: 6px
+		max-width: 110px
+
+		font-size: 12px
+		line-height: 1
+		color: $text_dark
+
+	&__stars
+		display: flex
+		align-items: center
+		gap: 6px
+
+		svg 
+			width: 12px
+			height: 12px
+
+			fill: #fdc20c
+
+	&__contacts
+		position: relative
+		display: flex
+		align-items: center
+		+adap('padding-inline', 46, 16)
+
+		&:before,
+		&:after
+			content: ''
+			position: absolute
+
+			width: 1px
+			height: 24px
+
+			background: $active
+
+		&:before
+			left: 0
+
+		&:after
+			right: 0
+
+	&__social 
+		+adap('margin-right', 32, 16)
+
+	&__tel
+		display: flex
+		align-items: center
+		gap: 6px
+
+		font-size: 14px
+		line-height: 1.42857
+		color: #313131
+
+		svg 
+			+adap('width', 18, 12)
+			+adap('height', 18, 12)
+
+			fill: $active
+
+	&__time 
+		display: flex
+		align-items: center
+		gap: 8px
+		margin-left: 8px
+
+		font-size: 14px
+		line-height: 1.42857
+		color: #2154b2
+
+		&:before
+			content: ''
+
+			width: 2px
+			height: 2px
+
+			border-radius: 50%
+			background: $active
+
+	&__button 
+		font-size: 14px
+
+
+	&__bottom
+		display: flex
+		justify-content: center
+		align-items: center
+		+adap('padding', 16, 8)
+
+		border-radius: 0 0 16px 16px 
+		box-shadow: 0px 0px 1px 0px #E4E4E4, -2px 2px 8px -204px #80808014, 2px -2px 8px -204px #80808014
+		background: #fff
+
+	&__menu 
+		display: flex
+		align-items: center
+
+		font-size: 15.5px
+		line-height: 1.5
+		color: #313131
+
+		&>li>a
+			padding: 8px 10px 8px 14px
+
+			+hov
+				color: $active
+
+	&__mobile-block
+		@media (min-width: 768px)
+			display: none
+
+
+	@media (max-width: #{$firstBreakpoint + px})
+		&__menu 
+			font-size: 14px
+
+			&>li>a
+				padding: 8px
+
+		&__top
+			padding-inline: 8px
+
+		&__logo 
+			img 
+				@media (min-width: 992px)
+					max-width: 130px
+					height: auto
+				 
+		&__left 
+			gap: 12px
+
+		&__contacts
+			padding-inline: 8px
+
+			&:after,
+			&:before
+				display: none
+
+		&__social
+			margin-right: 12px
+
+
+	@media (max-width: #{$burgerMedia+px})
+		$padding-top: 40
+		$padding-bottom: 40
+		$padding-x: 20
+		$mobile-bg: #fff
+ 
+		&__mobile
+			position: fixed
+			right: -100vw
+			top: var(--headerFixedHeight)
+			z-index: 5
+
+			width: min(500px, 101vw)
+			padding-bottom: 24px
+			// height: calc(100dvh - #{var(--headerFixedHeight)})
+
+			background: #eaf1f6
+
+			opacity: 0
+			transition: right .3s, opacity .3s
+			+scrollbar(100vh, $scrollBarWidth: 4, $padding: 0)
+			pointer-events: none
+
+			&.active
+				right: 0px 
+				opacity: 1
+				pointer-events: auto
+
+		&__nav 
+			width: calc(100% + 4px)
+
+		&__menu 
+			display: grid
+
+			background: #fff
+
+			&>li
+				box-shadow:  0 1px 2px 0 rgba(12, 12, 13, 0.1)
+
+				&>a
+					padding: 16px 32px
+					color: $active
+
+				
+		&__button 
+			margin: 16px
+
+
+
+		&__top 
+			+adap('padding-block', 12, 8)
+			padding-inline: 0
+
+			background: #fff
+			border: none
+
+		&__bottom 
+			padding: 0
+
+		&__rating
+			display: none
+
+		&__contacts
+			margin-left: auto
+
+	@media (max-width: 767px)
+		border-bottom: 1px solid #eaf1f6
+		border-radius: 0 0 8px 8px
+		
+		&__top 
+			gap: 16px
+		
+		&__contacts
+			padding: 0
+
+		&__tel 
+			width: 32px
+			height: 32px
+			display: flex
+			align-items: center
+			justify-content: center
+
+			background: $active
+			border-radius: 50%
+
+			svg 
+				width: 50%
+				height: 50%
+				fill: #eaf1f6
+
+			span 
+				display: none
+
+		&__time 
+			display: none
+
+		&__social
+			padding: 12px 32px
+			width: calc(100% + 4px)
+			margin-top: 8px
+			gap: 16px
+
+			background: #fff
+
+			.social
+				&__item 
+					width: 32px
+					height: 32px
+
+		&__mobile 
+			display: grid
+			grid-template-columns: 100%
+			justify-items: start
+			align-content: start
+
+			&-block 
+				order: 2
+				padding: 16px
+				margin: 16px 16px 0
+
+				border-radius: 8px
+				background: #fff
+
+			&-time 
+				margin-bottom: 8px
+				
+				color: $active
+				font-size: 16px
+				line-height: 1.5
+				color: #2154b2
+
+			&-tel 
+				display: flex
+				align-items: center
+				gap: 10px
+				margin-bottom: 16px
+
+				font-weight: 700
+				font-size: 18px
+				line-height: 1.33333
+				color: #313131
+
+				svg 
+					width: 12px
+					height: 12px	
+
+					fill: $active
+			
+			&-address
+				font-size: 16px
+				line-height: 1.5
+				color: #313131
+
+
+
+.header-main 
+	position: relative
+	padding-top: 40px
+	padding-bottom: 70px
+
+	&__bg
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100% 
+		mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 1170 650' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M1170 397C1170 413.569 1156.57 427 1140 427H400C383.431 427 370 440.431 370 457V620C370 636.569 356.569 650 340 650H30C13.4315 650 0 636.569 0 620V220C0 203.431 13.4315 190 30 190H570C586.569 190 600 176.569 600 160V30C600 13.4315 613.431 0 630 0H1140C1156.57 0 1170 13.4315 1170 30V397Z'/%3E%3C/svg%3E") center/contain no-repeat
+
+		-webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 1170 650' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M1170 397C1170 413.569 1156.57 427 1140 427H400C383.431 427 370 440.431 370 457V620C370 636.569 356.569 650 340 650H30C13.4315 650 0 636.569 0 620V220C0 203.431 13.4315 190 30 190H570C586.569 190 600 176.569 600 160V30C600 13.4315 613.431 0 630 0H1140C1156.57 0 1170 13.4315 1170 30V397Z'/%3E%3C/svg%3E") center/contain no-repeat
+
+		@media (max-width: 767px)
+			mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 343 278' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M343 218.385C343 223.695 338.695 228 333.385 228H112.615C107.305 228 103 232.305 103 237.615V268.385C103 273.695 98.695 278 93.3846 278H9.61539C4.30496 278 0 273.695 0 268.385V40.6154C0 35.305 4.30496 31 9.61539 31H170.385C175.695 31 180 26.695 180 21.3846V9.61538C180 4.30495 184.305 0 189.615 0H333.385C338.695 0 343 4.30495 343 9.61539V218.385Z'/%3E%3C/svg%3E")
+			-webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 343 278' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M343 218.385C343 223.695 338.695 228 333.385 228H112.615C107.305 228 103 232.305 103 237.615V268.385C103 273.695 98.695 278 93.3846 278H9.61539C4.30496 278 0 273.695 0 268.385V40.6154C0 35.305 4.30496 31 9.61539 31H170.385C175.695 31 180 26.695 180 21.3846V9.61538C180 4.30495 184.305 0 189.615 0H333.385C338.695 0 343 4.30495 343 9.61539V218.385Z'/%3E%3C/svg%3E")
+
+		picture
+			display: contents
+
+		img 
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+		&:after
+			content: ''
+
+			+abs 
+			z-index: 0
+			
+			background: #2154B24D
+			
+			pointer-events: none
+
+	&__wrapper
+		min-height: 650px
+		margin-left: auto
+		padding-bottom: 50px
+
+	&__title 
+		position: absolute
+		left: 0
+		top: 0
+
+		max-width: 700px
+		
+		background: #fff
+
+		font-weight: 700
+		+adap('font-size', 48, 36)
+		line-height: 1.2
+		color: $text_dark
+
+	&__title,
+	&__subtitle,
+	&__text
+		span
+			background: linear-gradient(180deg, #2154b2 0%, #1a4fb0 100%)
+			background-clip: text
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+
+	&__content 
+		position: absolute
+		right: 0
+		top: 69%
+		z-index: 2
+
+		display: grid
+		gap: 24px
+		max-width: 769px
+
+		background: #fff
+
+	&__subtitle 
+		font-weight: 700
+		+adap('font-size', 36, 24)
+		line-height: 1.2
+		color: $text_dark
+		letter-spacing: 0.05em
+
+		@media (max-width: 575px)
+			line-height: 1.4
+
+	&__text 
+		font-weight: 500
+		+adap('font-size', 20, 16)
+		line-height: 1.4
+		letter-spacing: 0.02em
+		color: rgba(0, 0, 0, 0.54)
+
+		@media (max-width: 575px)
+			line-height: 1.5
+			letter-spacing: 0.03em
+
+	&__button 
+		position: absolute
+		left: 0
+		bottom: -55px
+		min-width: 370px
+
+
+
+	@media (max-width: 1199px)
+		&__wrapper
+			min-height: 525px
+
+		&__title 
+			max-width: 470px
+
+			font-size: 38px
+
+		&__content
+			max-width: 620px
+			gap: 16px
+
+		&__subtitle 
+			font-size: 28px
+
+		&__text 
+			font-size: 16px
+
+		&__button 
+			min-width: 300px
+
+	@media (max-width: 991px)
+		&__wrapper
+			min-height: 400px
+
+		&__title 
+			max-width: 370px
+
+			font-size: 30px
+
+		&__content
+			max-width: 475px
+
+		&__subtitle 
+			font-size: 22px
+
+		&__text 
+			font-size: 15px
+
+		&__button 
+			min-width: 234px
+
+	@media (max-width: 767px)
+		padding-bottom: 40px
+
+		&__wrapper
+			min-height: 422px
+			padding-bottom: 0
+
+		&__bg 
+			position: relative
+			margin-top: -36px
+
+			img
+				height: 428px
+
+		&__title
+			position: static
+
+		&__content 
+			position: static
+			margin-top: -20px
+
+		&__subtitle 
+			font-size: 24px
+			line-height: 1.4
+			letter-spacing: normal
+
+		&__text
+			gap: 24px
+
+			font-size: 16px
+			line-height: 1.5
+
+		&__button 
+			display: table
+			position: static
+			margin-left: auto
+			translate: 0 -100%
+			margin-top: -8px
+
+	@media (max-width: 575px)
+		&__title
+			max-width: 100%
+
+			font-size: 36px
+
+		&__bg 
+			img 
+				+adap('height', 450, 285, 575)
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

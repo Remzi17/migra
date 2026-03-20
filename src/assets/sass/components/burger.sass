@@ -1,0 +1,61 @@
+$burgerWidth: 32px
+$burgerHeight: 32px
+$burgerLineOffset: 7
+$burgerLineHeight: 2px
+$burgerColor: #313131
+	
+.menu
+	&-link
+		position: relative
+		order: 10
+
+		flex-shrink: 0
+		width: $burgerWidth
+		height: $burgerHeight
+
+		@media (min-width: #{$burgerMedia+1+px})
+			display: none
+
+		&.active
+			.menu-lines
+				background: transparent
+
+				&:after
+					top: 0
+					rotate: -135deg
+					width: 21px
+
+				&:before
+					top: 0
+					rotate: 135deg
+
+	&-lines,
+	&-lines:before,
+	&-lines:after
+		position: absolute
+		right: 0
+		width: 21px
+		height: 2px
+
+		background-color: $burgerColor
+		border-radius: 2px
+		transition: 0.4s
+		pointer-events: none
+
+	&-lines
+		top: 50%
+		left: 50%
+		translate: -50% -50%
+
+
+		&:before
+			content: ''
+			top: #{$burgerLineOffset*-1+px}
+
+		&:after
+			content: ''
+			top: #{$burgerLineOffset+px}
+
+			width: 14px
+
+	

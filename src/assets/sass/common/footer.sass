@@ -1,0 +1,262 @@
+.footer 
+	&__wrapper
+		display: grid
+		+adap('gap', 20, 15)
+		padding-block: 30px 
+		+adap('padding-inline', 30, 16)
+
+		box-shadow: 0 2px 21px 0 rgba(132, 132, 132, 0.2)
+		background: #fff
+		border-radius: 16px 16px 0 0
+
+	&__menu 
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		flex-wrap: wrap
+		gap: 26px 16px
+		+adap('padding-top', 20, 15)
+
+		border-top: 1px solid #eaf1f6
+
+		font-weight: 500
+		font-size: 16px
+		line-height: 1.5
+		letter-spacing: 0.03em
+
+		a 
+			+hov
+				color: $active
+
+		li
+			&:has(.sub-menu)
+				flex: 1 0 265px
+				
+
+		ul
+			margin-top: 20px
+			display: grid
+			gap: 12px
+			// width: 265px
+
+			font-size: 14px
+			line-height: 1.71429
+			color: $text_dark
+
+	
+	&__info
+		display: flex
+		align-items: flex-start
+		+adap('gap', 45, 20)
+		+adap('padding-top', 20, 15)
+		
+		border-top: 1px solid #eaf1f6
+	
+	&__left 
+		display: grid
+		gap: 8px
+
+		max-width: 250px	
+
+		font-size: 12px
+		line-height: 1.5
+		color: $text_dark
+
+	&__col 
+		display: grid
+		gap: 10px
+
+		font-size: 12px
+		line-height: 1.5
+		color: $text_dark
+
+	&__social 
+		display: flex
+		align-items: center
+		gap: 10px
+		flex-wrap: wrap
+
+		&-item
+			flex-shrink: 0
+	
+
+	&__right 
+		display: grid
+		+adap('gap', 56, 12)
+		margin-left: auto
+		justify-items: end
+
+		.footer__social
+			flex-wrap: wrap
+			justify-content: flex-end
+			font-weight: 500
+			font-size: 16px
+			line-height: 1.5
+			letter-spacing: 0.03em
+			text-align: center
+			color: rgba(0, 0, 0, 0.54)
+
+			&-item 
+				display: flex
+				align-items: center
+				gap: 4px
+
+	&__button 
+		min-width: 240px
+
+	&__text 
+		font-size: 8px
+		line-height: 3
+		letter-spacing: 0.05em
+		color: #000
+
+	&__bottom
+		+adap('padding-top', 20, 15)
+				
+		border-top: 1px solid #eaf1f6
+
+		font-size: 8px
+		line-height: 1
+		letter-spacing: 0.05em
+		text-align: center
+		color: #50b3ff
+		text-wrap: balance
+
+
+
+	@media (max-width: 1199px)
+		&__menu 
+			
+	@media (max-width: 991px)
+		&__info 
+			flex-wrap: wrap
+
+		&__right 
+			justify-items: start
+
+			.footer__social
+				justify-content: flex-start
+
+	@media (max-width: 767px)
+		&__menu 
+			display: grid
+			gap: 16px
+
+		&__info 
+			display: grid
+			grid-template-columns: 100%
+			gap: 30px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
